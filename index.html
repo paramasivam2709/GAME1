@@ -18,6 +18,78 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
+	<style> 
+	/* Dropdown Menu Styling */
+.main-menu ul li {
+  position: relative;
+}
+
+.main-menu ul li .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 1000; /* keeps above hero image */
+  border-radius: 6px;
+}
+
+.main-menu ul li:hover > .dropdown {
+  display: block;
+}
+
+.main-menu ul li .dropdown li {
+  display: block;
+}
+
+.main-menu ul li .dropdown li a {
+  color: #fff;
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main-menu ul li .dropdown li a:hover {
+  background: #b01ba5; /* your brand color */
+  color: #fff;
+}
+
+/* Ensure dropdown shows above hero image */
+.header-section {
+  position: relative;
+  z-index: 2000;
+}
+/* ✅ Final Fix — Dropdown shows below header and above hero */
+.header-section {
+    position: relative;
+    z-index: 9999; /* keep header above hero section */
+}
+
+.main-menu .dropdown {
+    position: absolute;
+    top: 100%; /* directly below the main link */
+    left: 0;
+    z-index: 0; /* ensure it's above hero banner */
+    background: rgba(26, 26, 26, 0.95); /* dark, slightly transparent */
+    border: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.main-menu .dropdown li a {
+    color: #fff !important;
+    padding: 10px 18px;
+    display: block;
+}
+
+.main-menu .dropdown li a:hover {
+    background: #ffb320;
+    color: #131313 !important;
+}
+
+</style>
 
 
 	
@@ -45,14 +117,20 @@
 			</div>
 			<!-- site menu -->
 			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="review.html">Games</a></li>
-					<li><a href="categories.html">Blog</a></li>
-					<li><a href="community.html">Forums</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</nav>
+    <ul>
+        <li class="has-dropdown">
+            
+            <a href="index.html">Home <i class="fa fa-caret-down dropdown-icon" aria-hidden="true"></i></a>
+            <ul class="dropdown">
+                <li><a href="https://paramasivam2709.github.io/GAME2/">Home 2</a></li>
+            </ul>
+        </li>
+        <li><a href="review.html">Games</a></li>
+        <li><a href="categories.html">Blog</a></li>
+        <li><a href="community.html">Forums</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 		</div>
 	</header>
 	<!-- Header section end -->
@@ -425,5 +503,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.marquee.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+    $(function(){
+        // toggle dropdown on small screens and rotate caret icon
+        $('.main-menu .has-dropdown > a').on('click', function(e){
+            if ($(window).width() <= 767) {
+                e.preventDefault();
+                var $li = $(this).parent();
+                $li.toggleClass('open');
+                $li.children('.dropdown').slideToggle(200);
+            }
+        });
+        // optional: close dropdown when clicking outside (mobile)
+        $(document).on('click', function(e){
+            if ($(window).width() <= 767) {
+                if (!$(e.target).closest('.main-menu').length) {
+                    $('.main-menu .has-dropdown.open').removeClass('open').children('.dropdown').slideUp(150);
+                }
+            }
+        });
+    });
+</script>
     </body>
 </html>
