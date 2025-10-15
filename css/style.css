@@ -48,6 +48,16 @@ p {
 	color: #878787;
 	line-height: 2;
 }
+.footer-social-links a {
+    color: #fff;
+    font-size: 22px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: color 0.2s;
+}
+.footer-social-links a:hover {
+    color: #ffb320;
+}
 
 img {
 	max-width: 100%;
@@ -239,18 +249,22 @@ ol {
 ---------------------*/
 
 .header-section {
+	position: relative;
 	background: #131313;
 	clear: both;
 	overflow: hidden;
-	padding: 18px 0;
+	padding: 28px 0;
 	border-bottom: 1px solid #ffb320;
+	height: fit-content;
+	z-index: 9999;
+	
 }
 
 .site-logo {
 	display: inline-block;
 	float: left;
-	padding-top: 6px;
-	width: 150px;
+	padding-top: 8px;
+	width: 160px;
 }
 
 .user-panel {
@@ -269,6 +283,7 @@ ol {
 .main-menu {
 	float: right;
 	margin-right: 170px;
+	z-index: 9999;
 }
 
 .main-menu ul {
@@ -288,9 +303,8 @@ ol {
 	padding: 10px 5px;
 }
 
-.main-menu ul li a:hover {
-	color: #ffb320;
-}
+
+
 
 .header-btn {
 	float: right;
@@ -300,6 +314,22 @@ ol {
 .nav-switch {
 	display: none;
 }
+/* ...existing code... */
+
+
+/* main menu container */
+.main-menu { float: right; }
+.main-menu ul { margin: 0; padding: 0; list-style: none; display: flex; align-items: center; }
+.main-menu ul li { position: relative; margin-left: 28px; }
+.main-menu ul li a {
+    display: inline-block;
+    color: #ffffff; /* header link color */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 4px;
+    transition: color .18s ease;
+}
+.main-menu ul li a:hover { color: #ffb320; }
 
 /*------------------
   Hero Section
@@ -309,11 +339,14 @@ ol {
 	height: 865px;
 	display: table;
 	width: 100%;
+	z-index: 10000;
+	position: relative;
 }
 
 .hero-slider .hs-text {
 	display: table-cell;
 	vertical-align: middle;
+	z-index: 2;
 }
 
 .hero-slider .hs-text h2 {

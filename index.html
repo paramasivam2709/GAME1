@@ -31,8 +31,9 @@
   left: 0;
   background: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
   padding: 10px 0;
-  min-width: 180px;
-  z-index: 1000; /* keeps above hero image */
+  min-width: 100px;
+  padding: 5PX 0;
+  
   border-radius: 6px;
 }
 
@@ -69,13 +70,16 @@
 }
 
 .main-menu .dropdown {
+	z-index: 0;
     position: absolute;
     top: 100%; /* directly below the main link */
     left: 0;
-    z-index: 0; /* ensure it's above hero banner */
+    min-width: 180px;/* ensure it's above hero banner */
     background: rgba(26, 26, 26, 0.95); /* dark, slightly transparent */
-    border: none;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+	display: none;
+	opacity: 1;
 }
 
 .main-menu .dropdown li a {
@@ -473,6 +477,13 @@
 					</div>
 				</div>
 			</div>
+			<!-- Social Media Icons -->
+<div class="footer-social-links" style="margin: 20px 0; text-align: center;">
+    <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
+</div>
 		</div>
 	</section>
 	<!-- Footer top section end -->

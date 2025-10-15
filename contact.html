@@ -19,7 +19,18 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 
-
+<style>/* Make social media icons visible and styled */
+.social-links a {
+    color: #fff !important;         /* White icons for dark backgrounds */
+    font-size: 20px;
+    margin: 0 8px;
+    display: inline-block;
+    transition: color 0.2s;
+    vertical-align: middle;
+}
+.social-links a:hover {
+    color: #ffb320 !important;      /* Highlight color on hover */
+}</style>
 	
 
 </head>
@@ -106,12 +117,12 @@
 						</div>
 					</div>
 					<div class="social-links">
-						<a href="#"><i class="fa fa-pinterest"></i></a>
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="404.html"><i class="fa fa-pinterest"></i></a>
+						<a href="404.html"><i class="fa fa-facebook"></i></a>
+						<a href="404.html"><i class="fa fa-twitter"></i></a>
+						<a href="404.html"><i class="fa fa-dribbble"></i></a>
+						<a href="404.html"><i class="fa fa-behance"></i></a>
+						<a href="404.html"><i class="fa fa-linkedin"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-8">
@@ -251,19 +262,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.marquee.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-  // Wait for the DOM to load
-  document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector(".comment-form");
-    const button = form.querySelector(".site-btn");
-
-    button.addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent actual form submission
-      alert("Message sent successfully!");
-      form.reset(); // Optional: clears the form fields
-    });
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector(".comment-form");
+    if(form) {
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Message sent successfully!");
+            form.reset(); // Optional: clear the form fields
+        });
+    }
+});
 </script>
-
 
 
 	<!-- load for map -->
