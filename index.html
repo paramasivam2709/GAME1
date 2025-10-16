@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
 	<link href="img/favicon.ico" rel="shortcut icon"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
@@ -18,82 +19,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
-	<style> 
-	/* Dropdown Menu Styling */
-.main-menu ul li {
-  position: relative;
-}
-
-.main-menu ul li .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
-  padding: 10px 0;
-  min-width: 100px;
-  padding: 5PX 0;
-  
-  border-radius: 6px;
-}
-
-.main-menu ul li:hover > .dropdown {
-  display: block;
-}
-
-.main-menu ul li .dropdown li {
-  display: block;
-}
-
-.main-menu ul li .dropdown li a {
-  color: #fff;
-  padding: 10px 20px;
-  display: block;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.main-menu ul li .dropdown li a:hover {
-  background: #b01ba5; /* your brand color */
-  color: #fff;
-}
-
-/* Ensure dropdown shows above hero image */
-.header-section {
-  position: relative;
-  z-index: 2000;
-}
-/* ✅ Final Fix — Dropdown shows below header and above hero */
-.header-section {
-    position: relative;
-    z-index: 9999; /* keep header above hero section */
-}
-
-.main-menu .dropdown {
-	z-index: 0;
-    position: absolute;
-    top: 100%; /* directly below the main link */
-    left: 0;
-    min-width: 180px;/* ensure it's above hero banner */
-    background: rgba(26, 26, 26, 0.95); /* dark, slightly transparent */
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-	display: none;
-	opacity: 1;
-}
-
-.main-menu .dropdown li a {
-    color: #fff !important;
-    padding: 10px 18px;
-    display: block;
-}
-
-.main-menu .dropdown li a:hover {
-    background: #ffb320;
-    color: #131313 !important;
-}
-
-</style>
+	
 
 
 	
@@ -107,37 +33,34 @@
 
 	<!-- Header section -->
 	<header class="header-section">
-		<div class="container">
-			<!-- logo -->
-			<a class="site-logo" href="index.html">
-				<img src="img/logo.png" alt="">
-			</a>
-			<div class="user-panel">
-				<a href="signup.html">Login</a>  /  <a href="signup.html">Register</a>
+		<div class="header-warp">
+			
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="index.html" class="site-logo">
+					<img src="./img/logo.png" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+					<div class="user-panel">
+						<a href="dashboard.html">Login</a> / <a href="signup.html">Register</a>
+					</div>
+					<!-- Menu -->
+					<ul class="main-menu primary-menu">
+						
+						<li><a href="index.html">Home <i class="fa-solid fa-sort-down"></i></a>
+							<ul class="sub-menu">
+								<li><a href=" https://paramasivam2709.github.io/GAME2/">Home 1</a></li>
+							</ul>
+						</li>
+						<li><a href="review.html">games</a></li>
+						<li><a href="categories.html">Blog</a></li>
+						<li><a href="community.html">Forums</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
 			</div>
-			<!-- responsive -->
-			<div class="nav-switch">
-				<i class="fa fa-bars"></i>
-			</div>
-			<!-- site menu -->
-			<nav class="main-menu">
-    <ul>
-        <li class="has-dropdown">
-            
-            <a href="index.html">Home <i class="fa fa-caret-down dropdown-icon" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-                <li><a href="https://paramasivam2709.github.io/GAME2/">Home 2</a></li>
-            </ul>
-        </li>
-        <li><a href="review.html">Games</a></li>
-        <li><a href="categories.html">Blog</a></li>
-        <li><a href="community.html">Forums</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
 		</div>
 	</header>
-	<!-- Header section end -->
 
 
 	<!-- Hero section -->
