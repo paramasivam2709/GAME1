@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ...existing code... -->
+  <meta charset="utf-8" />
+  <title>Dashboard - Stackly</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="img/favicon.ico" rel="shortcut icon"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ...existing code... */
+    /* small additions for sections */
+    .dash-main section { display:block; }
+    .hidden { display:none; }
+    .msg-box { padding:12px;border-radius:8px;background:#e9f7ef;color:#155724;margin-bottom:12px; display:none; }
+    .error-box { padding:12px;border-radius:8px;background:#fdecea;color:#7a1f15;margin-bottom:12px; display:none; }
+    .messages-list { max-height:260px; overflow:auto; }
+    .event-item { padding:10px;border-bottom:1px solid #f1f1f1; }
+  </style>
+</head>
+<body>
+  <div class="dash-wrap">
+    <aside class="dash-sidebar">
+      <div class="logo">
+        <a href="index.html"><img src="img/logo.png" alt="logo" style="max-width:140px;"></a>
+      </div>
+      <nav>
+        <a href="#" class="nav-link active" data-target="overview"><i class="fa fa-tachometer"></i> Overview</a>
+        <a href="#" class="nav-link" data-target="profile-section"><i class="fa fa-user"></i> Profile</a>
+        <a href="#" class="nav-link" data-target="messages-section"><i class="fa fa-envelope"></i> Messages</a>
+        <a href="#" class="nav-link" data-target="events-section"><i class="fa fa-calendar"></i> Events</a>
+        <a href="#" class="nav-link" data-target="settings-section"><i class="fa fa-cog"></i> Settings</a>
+        <a href="#" id="logoutBtn" style="margin-top:12px;"><i class="fa fa-sign-out"></i> Logout</a>
+      </nav>
+      <!-- ...existing code... -->
+    </aside>
+
+    <main class="dash-main">
+      <!-- Wrap existing overview content -->
+      <div id="overview">
+        <!-- ...existing overview code (dash-header, stats, recent activity, quick actions, profile card) ... -->
+        <div class="dash-header">
+          <div>
+            <h3 style="margin:0 0 6px 0;">Welcome back, Admin</h3>
+            <small class="text-muted">Here's what's happening with your projects today</small>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="text-align:right;">
+              <div style="font-weight:700">Balance</div>
+              <div style="color:#ffb320;font-weight:700">$1,250</div>
+            </div>
+            <button class="btn-logout" id="topLogout">Sign out</button>
+          </div>
+        </div>
+
+        <section class="stats">
+          <div class="stat">
+            <div style="font-size:13px;color:#8a8a8a">Active Users</div>
+            <div style="font-size:22px;font-weight:700">2,384</div>
+          </div>
+          <div class="stat">
+            <div style="font-size:13px;color:#8a8a8a">New Signups</div>
+            <div style="font-size:22px;font-weight:700">120</div>
+          </div>
+          <div class="stat">
+            <div style="font-size:13px;color:#8a8a8a">Games Published</div>
+            <div style="font-size:22px;font-weight:700">48</div>
+          </div>
+          <div class="stat">
+            <div style="font-size:13px;color:#8a8a8a">Open Tickets</div>
+            <div style="font-size:22px;font-weight:700">7</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h4 style="margin-top:0;margin-bottom:12px;">Recent Activity</h4>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Activity</th>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>New game uploaded</td><td>james</td><td>Oct 24, 2025</td><td><span style="color:#28a745;font-weight:700">Done</span></td></tr>
+                <tr><td>2</td><td>Comment reported</td><td>maria</td><td>Oct 23, 2025</td><td><span style="color:#ffb320">Review</span></td></tr>
+                <tr><td>3</td><td>Subscription renewed</td><td>alex</td><td>Oct 22, 2025</td><td><span style="color:#28a745">Paid</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section style="display:grid;grid-template-columns:1fr 320px;gap:18px;">
+          <div class="card">
+            <h4 style="margin-top:0;margin-bottom:12px;">Quick Actions</h4>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button class="site-btn">Create Game</button>
+              <button class="site-btn">New Post</button>
+              <button class="site-btn">Manage Tournaments</button>
+              <button class="site-btn" id="announceBtn">Make Announcement</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin-top:0;margin-bottom:12px;">Profile</h4>
+            <div style="text-align:center;">
+              <img src="img/authors/1.jpg" alt="avatar" style="width:86px;height:86px;border-radius:50%;object-fit:cover;margin-bottom:12px;">
+              <div style="font-weight:700">Admin</div>
+              <div style="color:#8a8a8a;margin-bottom:12px;">admin@stackly.com</div>
+              <a href="contact.html" class="site-btn btn-sm">Edit Profile</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- PROFILE SECTION -->
+      <section id="profile-section" class="hidden">
+        <h4>Profile</h4>
+        <div class="msg-box" id="profile-msg"></div>
+        <form id="profile-form" style="max-width:600px;">
+          <div class="form-group">
+            <label>Full name</label>
+            <input class="form-control" id="profile-name" value="Admin" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" id="profile-email" value="admin@stackly.com" />
+          </div>
+          <div class="form-group">
+            <label>Bio</label>
+            <textarea class="form-control" id="profile-bio" rows="4">Administrator account</textarea>
+          </div>
+          <button class="site-btn" type="button" id="saveProfile">Save Profile</button>
+        </form>
+      </section>
+
+      <!-- MESSAGES SECTION -->
+      <section id="messages-section" class="hidden">
+        <h4>Messages</h4>
+        <div class="msg-box" id="message-success"></div>
+        <div class="row" style="gap:18px;">
+          <div style="flex:1; min-width:260px;">
+            <div class="card">
+              <h5>Inbox</h5>
+              <div class="messages-list">
+                <div class="event-item"><strong>James</strong> &middot; New game uploaded <div style="font-size:12px;color:#8a8a8a">Oct 24</div></div>
+                <div class="event-item"><strong>Maria</strong> &middot; Comment reported <div style="font-size:12px;color:#8a8a8a">Oct 23</div></div>
+                <div class="event-item"><strong>Alex</strong> &middot; Subscription renewed <div style="font-size:12px;color:#8a8a8a">Oct 22</div></div>
+              </div>
+            </div>
+          </div>
+          <div style="width:420px;">
+            <div class="card">
+              <h5>Compose</h5>
+              <form id="message-form">
+                <div class="form-group">
+                  <input class="form-control" id="msg-to" placeholder="To (email or username)" required />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="msg-subject" placeholder="Subject" required />
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" id="msg-body" rows="6" placeholder="Write your message..." required></textarea>
+                </div>
+                <button class="site-btn" type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENTS SECTION -->
+      <section id="events-section" class="hidden">
+        <h4>Events</h4>
+        <div class="msg-box" id="event-success"></div>
+        <div class="card" style="margin-bottom:12px;">
+          <form id="event-form" style="max-width:700px;">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Event title</label>
+                <input class="form-control" id="event-title" required />
+              </div>
+              <div class="form-group col-md-6">
+                <label>Date</label>
+                <input class="form-control" id="event-date" type="date" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea class="form-control" id="event-desc" rows="3"></textarea>
+            </div>
+            <button class="site-btn" type="submit">Create Event</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h5>Upcoming Events</h5>
+          <div id="events-list">
+            <div class="event-item"><strong>Game Jam</strong> &middot; 2025-11-10</div>
+            <div class="event-item"><strong>Tournament</strong> &middot; 2025-12-05</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS SECTION -->
+      <section id="settings-section" class="hidden">
+        <h4>Settings</h4>
+        <div class="msg-box" id="settings-success"></div>
+        <form id="settings-form" style="max-width:600px;">
+          <div class="form-group">
+            <label>Notification Emails</label>
+            <select id="notify-email" class="form-control">
+              <option value="all">All</option>
+              <option value="important">Important only</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Timezone</label>
+            <select id="timezone" class="form-control">
+              <option>UTC</option>
+              <option>Asia/Kolkata</option>
+              <option>America/New_York</option>
+            </select>
+          </div>
+          <button class="site-btn" id="saveSettings" type="button">Save Settings</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    // ...existing simple interactions...
+    document.getElementById('logoutBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      if(confirm('Sign out now?')) { alert('Signed out'); window.location.href='index.html'; }
+    });
+    document.getElementById('topLogout').addEventListener('click', function(){
+      if(confirm('Sign out now?')) { window.location.href='index.html'; }
+    });
+    document.getElementById('announceBtn').addEventListener('click', function(){
+      alert('Announcement posted (simulated).');
+    });
+
+    // NAV: show/hide sections
+    document.querySelectorAll('.nav-link').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+        this.classList.add('active');
+        var target = this.getAttribute('data-target');
+        document.querySelectorAll('#overview, #profile-section, #messages-section, #events-section, #settings-section').forEach(function(sec){
+          sec.classList.add('hidden');
+        });
+        var el = document.getElementById(target);
+        if(el) el.classList.remove('hidden');
+      });
+    });
+
+    // PROFILE save
+    document.getElementById('saveProfile').addEventListener('click', function(){
+      var name = document.getElementById('profile-name').value.trim();
+      var email = document.getElementById('profile-email').value.trim();
+      var box = document.getElementById('profile-msg');
+      if(!name || !email){ box.style.display='block'; box.style.background='#fdecea'; box.style.color='#7a1f15'; box.textContent='Please fill name and email.'; return; }
+      box.style.display='block'; box.style.background='#e9f7ef'; box.style.color='#155724'; box.textContent='Profile saved successfully.';
+      setTimeout(()=>box.style.display='none',3000);
+    });
+
+    // MESSAGES: send
+    document.getElementById('message-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var to = document.getElementById('msg-to').value.trim();
+      var subj = document.getElementById('msg-subject').value.trim();
+      var body = document.getElementById('msg-body').value.trim();
+      var s = document.getElementById('message-success');
+      if(!to || !subj || !body){ s.style.display='block'; s.style.background='#fdecea'; s.style.color='#7a1f15'; s.textContent='All fields required.'; return; }
+      s.style.display='block'; s.style.background='#e9f7ef'; s.style.color='#155724'; s.textContent='Message sent successfully.';
+      this.reset();
+      setTimeout(()=>s.style.display='none',3000);
+    });
+
+    // EVENTS: create
+    document.getElementById('event-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var title = document.getElementById('event-title').value.trim();
+      var date = document.getElementById('event-date').value;
+      var desc = document.getElementById('event-desc').value.trim();
+      var s = document.getElementById('event-success');
+      if(!title || !date){ s.style.display='block'; s.style.background='#fdecea'; s.style.color='#7a1f15'; s.textContent='Please provide title and date.'; return; }
+      s.style.display='block'; s.style.background='#e9f7ef'; s.style.color='#155724'; s.textContent='Event created.';
+      var container = document.getElementById('events-list');
+      var div = document.createElement('div'); div.className='event-item'; div.innerHTML = '<strong>'+title+'</strong> &middot; '+date;
+      container.prepend(div);
+      this.reset();
+      setTimeout(()=>s.style.display='none',3000);
+    });
+
+    // SETTINGS: save
+    document.getElementById('saveSettings').addEventListener('click', function(){
+      var s = document.getElementById('settings-success');
+      s.style.display='block'; s.textContent='Settings saved.';
+      setTimeout(()=>s.style.display='none',2000);
+    });
+
+  </script>
+</body>
+</html>
