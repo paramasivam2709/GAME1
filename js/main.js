@@ -1,9 +1,3 @@
-/* =================================
-------------------------------------
-	Game Warrior Template
-	Version: 1.0
- ------------------------------------ 
- ====================================*/
 
 
 'use strict';
@@ -18,16 +12,16 @@ $(window).on('load', function() {
 
 });
 
-(function($) {
 
+	(function($) {
 	/*------------------
 		Navigation
 	--------------------*/
-	$('.nav-switch').on('click', function(event) {
-		$('.main-menu').slideToggle(400);
-		event.preventDefault();
+	$('.primary-menu').slicknav({
+		appendTo:'.header-warp',
+		closedSymbol: '<i class="fa fa-angle-down"></i>',
+		openedSymbol: '<i class="fa fa-angle-up"></i>'
 	});
-
 
 	/*------------------
 		Background Set
@@ -76,5 +70,9 @@ $(window).on('load', function() {
 	    duplicated: true
 	});
 
-})(jQuery);
 
+	
+
+
+
+})(jQuery);
