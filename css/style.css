@@ -444,6 +444,161 @@ ol {
 }
 
 
+/* Mobile Navigation Styles */
+.nav-switch {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 10px;
+    color: #ffb320;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 200;
+}
+
+.nav-switch:hover {
+    color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-switch {
+        display: block;
+    }
+
+    .main-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(19, 19, 19, 0.9);
+        padding: 20px 0;
+        border-top: 2px solid #ffb320;
+    }
+
+    .main-menu li {
+        display: block;
+        margin: 0;
+        padding: 8px 25px;
+    }
+
+    .main-menu li a {
+        padding: 5px 0;
+        margin: 0;
+        color: #1b0b0b;
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .main-menu li a:after {
+        display: none;
+    }
+
+    .main-menu .sub-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        padding: 0;
+        margin: 10px 0;
+        box-shadow: none;
+        display: none;
+    }
+
+    .main-menu .sub-menu li a {
+        padding: 5px 20px;
+        color: #0a0303;
+        border-bottom: none;
+    }
+
+    .main-menu .has-dropdown.open > .sub-menu {
+        display: block;
+    }
+
+    .header-section {
+        padding: 15px 0;
+    }
+
+    .site-logo {
+        padding: 5px 15px;
+        max-width: 150px;
+    }
+
+    .header-bar-warp {
+        padding: 15px 0;
+    }
+}
+
+/* Mobile menu styles */
+@media only screen and (max-width: 767px) {
+    .main-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(19, 19, 19, 0.95);
+        padding: 20px 0;
+        border-top: 2px solid #ffb320;
+    }
+
+    .main-menu li {
+        display: block;
+        margin: 0;
+        padding: 8px 25px;
+    }
+
+    .main-menu li a {
+        padding: 5px 0;
+        margin: 0;
+        color:#070101f;
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .main-menu .sub-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: rgba(0,0,0,0.2);
+        padding: 10px 0;
+        margin: 10px 0;
+        display: none;
+        border-radius: 4px;
+    }
+
+    .main-menu .sub-menu li a {
+        padding: 8px 15px;
+        color: black;
+        border-bottom: none;
+        opacity: 0.8;
+    }
+
+    .main-menu .sub-menu li a:hover {
+        opacity: 1;
+        color: #ffb320;
+    }
+
+    .main-menu .has-dropdown > a {
+        position: relative;
+    }
+
+    .main-menu .has-dropdown > a i {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s;
+    }
+
+    .main-menu .has-dropdown.open > a i {
+        transform: translateY(-50%) rotate(180deg);
+    }
+}
+
+
 /*------------------
   Hero Section
 ---------------------*/
@@ -1647,64 +1802,4 @@ ol {
 	.page-info-section .pi-content h2 {
 		font-size: 40px;
 	}
-}
-
-/* Mobile menu styles */
-@media (max-width: 767px) {
-    .main-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #131313;
-        padding: 20px;
-        z-index: 999;
-    }
-
-    .main-menu ul {
-        flex-direction: column;
-    }
-
-    .main-menu ul li {
-        display: block;
-        margin: 0;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .main-menu ul li:last-child {
-        border-bottom: none;
-    }
-
-    .main-menu .dropdown {
-        position: static;
-        width: 100%;
-        display: none;
-        background: rgba(0,0,0,0.2);
-        padding-left: 15px;
-    }
-
-    .nav-switch {
-        display: block;
-        float: right;
-        color: #fff;
-        font-size: 26px;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .header-bar-warp {
-        position: relative;
-    }
-}
-
-/* Hide nav switch on desktop */
-@media (min-width: 768px) {
-    .nav-switch {
-        display: none;
-    }
-    .main-menu {
-        display: block !important;
-    }
 }
