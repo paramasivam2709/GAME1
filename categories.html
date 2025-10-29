@@ -20,7 +20,32 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 
+    <style>
 
+
+.search-form input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.search-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255,179,32,0.1);
+}
+
+.search-form button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .search-form div {
+    flex-direction: column;
+  }
+  .search-form button {
+    width: 100%;
+  }
+}
+</style>
 	
 </head>
 <body>
@@ -38,7 +63,7 @@
 				<a href="index.html" class="site-logo">
 					<img src="./img/logo.png" alt="">
 				</a>
-				< <!-- mobile nav toggle -->
+				 <!-- mobile nav toggle -->
                 <div class="nav-switch">
                     <i class="fa fa-bars"></i>
                 </div>
@@ -238,12 +263,26 @@
 				<!-- sidebar -->
 				<div class="col-lg-4 col-md-7 sidebar pt-5 pt-lg-0">
 					<!-- widget -->
-					<div class="widget-item">
-						<form class="search-widget">
-							<input type="text" placeholder="Search">
-							<button><i class="fa fa-search"></i></button>
-						</form>
-					</div>
+					<div class="actions">
+  
+  
+  <!-- Add search form -->
+  <form class="search-form" onsubmit="window.location.href='404.html'; return false;" style="margin-top: 20px;">
+    <div style="display: flex; gap: 8px;">
+        <input type="search" 
+               name="q" 
+               placeholder="Search our site..."
+               style="flex: 1; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); 
+                      background: rgba(255,255,255,0.05); color: #fff;">
+        <button type="submit" 
+                class="btn btn-primary"
+                style="padding: 12px 24px;">
+            <i class="fa fa-search"></i>
+            Search
+        </button>
+    </div>
+</form>
+</div>
 					<!-- widget -->
 					<div class="widget-item">
 						<h4 class="widget-title">Latest Posts</h4>
